@@ -244,7 +244,7 @@
     const mailUrl = `mailto:${EMAIL_DESTINO}?subject=${encodeURIComponent('Briefing de projeto — Portfólio')}&body=${mensagem}`;
     document.getElementById('btn-mail').href = mailUrl;
     const waDirect = document.getElementById('wa-direct');
-    if (waDirect) { waDirect.href = waUrl; waDirect.textContent = waUrl; }
+    if (waDirect) { waDirect.href = waUrl; waDirect.textContent = 'Abrir conversa no WhatsApp'; waDirect.target = '_blank'; waDirect.rel = 'noopener'; }
     const mailDirect = document.getElementById('mail-direct');
     if (mailDirect) { mailDirect.href = mailUrl; }
     document.getElementById('year').textContent = new Date().getFullYear();
