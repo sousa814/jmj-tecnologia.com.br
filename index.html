@@ -207,7 +207,7 @@
           <h4>WhatsApp</h4>
           <p>Envie um resumo do seu projeto (servidores/website/ERP), prazos e restrições.</p>
           <a class="btn primary" id="btn-whats" href="#">💬 Falar no WhatsApp</a>
-          <p class="note">Substitua pelo seu número no código abaixo.</p>
+          <p class="note">Atendimento: <strong>(11) 98025-2005</strong> · <a id="wa-direct" href="#">link direto do WhatsApp</a><br>E-mail: <a id="mail-direct" href="#">alexandre.sousa@jmj-tecnologia.com.br</a></p>
         </div>
         <div class="card">
           <h4>E‑mail</h4>
@@ -226,27 +226,27 @@
   </footer>
 
   <script>
-    const WHATS_NUMERO = 11-98025-2005
-    const EMAIL_DESTINO = antonio.sousa@spackti.com.br
+    // Corrigido: número como string e com DDI+DDD, email como string
+    const WHATS_NUMERO = '5511980252005';
+    const EMAIL_DESTINO = 'alexandre.sousa@jmj-tecnologia.com.br';
 
     const mensagem = encodeURIComponent(
-      `Olá, tenho interesse nos serviços.
-
-`+
-      `• Tipo: Migração / Website / ERP+Chamados
-`+
-      `• Contexto atual: ___
-`+
-      `• Prazo e restrições: ___
-`+
-      `• Observações: ___
-
-`+
+      `Olá, tenho interesse nos serviços.\n\n`+
+      `• Tipo: Migração / Website / ERP+Chamados\n`+
+      `• Contexto atual: ___\n`+
+      `• Prazo e restrições: ___\n`+
+      `• Observações: ___\n\n`+
       `Obrigado!`
     );
 
-    document.getElementById('btn-whats').href = `https://wa.me/${WHATS_NUMERO}?text=${mensagem}`;
-    document.getElementById('btn-mail').href = `mailto:${EMAIL_DESTINO}?subject=${encodeURIComponent('Briefing de projeto — Portfólio')}&body=${mensagem}`;
+    const waUrl = `https://wa.me/${WHATS_NUMERO}?text=${mensagem}`;
+    document.getElementById('btn-whats').href = waUrl;
+    const mailUrl = `mailto:${EMAIL_DESTINO}?subject=${encodeURIComponent('Briefing de projeto — Portfólio')}&body=${mensagem}`;
+    document.getElementById('btn-mail').href = mailUrl;
+    const waDirect = document.getElementById('wa-direct');
+    if (waDirect) { waDirect.href = waUrl; waDirect.textContent = waUrl; }
+    const mailDirect = document.getElementById('mail-direct');
+    if (mailDirect) { mailDirect.href = mailUrl; }
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
